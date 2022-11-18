@@ -101,126 +101,39 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
+              <th scope="col">Ngày</th>
+              <th scope="col">Giờ</th>
+              <th scope="col">Đội 1</th>
+              <th scope="col">Đội 2</th>
+              <th scope="col">Tỉ lệ 1</th>
+              <th scope="col">Tỉ lệ 2</th>
+              <th scope="col">Vào 1</th>
+              <th scope="col">Vào 2</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,004</td>
-              <td>text</td>
-              <td>random</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,005</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>placeholder</td>
-            </tr>
-            <tr>
-              <td>1,006</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,007</td>
-              <td>placeholder</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>irrelevant</td>
-            </tr>
-            <tr>
-              <td>1,008</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-            <tr>
-              <td>1,009</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td>1,010</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,011</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,012</td>
-              <td>text</td>
-              <td>placeholder</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,013</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>visual</td>
-            </tr>
-            <tr>
-              <td>1,014</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,015</td>
-              <td>random</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>text</td>
-            </tr>
+   <%matchTable.forEach(function(item){matchday = item.matchday.toISOString().split('T')[0];%>
+    
+    <tr>
+      <form action="/order" method="post">
+      <input type="hidden" name="matchid" value="<%=item._id%>">
+      <input type="hidden" name="userId" value="<%=userId%>">
+      
+      <td> <%=matchday%> </td>
+      <td> <%=item.matchtime%> </td>
+      <td> <%=item.country1%> </td>
+      <td> <%=item.country2%> </td>
+      <td> <%=item.rate1%> </td>
+      <td> <%=item.rate2%> </td>
+      <td> <input type="number" name="order1" id="order1" placeholder=""> </td>
+      <td> <input type="number" name="order2" id="order2" placeholder=""> </td>
+      <td> <button type="submit">Vào</button> </td>
+      <td>  </td>
+    </tr>
+  </form>
+   <%})%>
+      
+           
           </tbody>
         </table>
       </div>
