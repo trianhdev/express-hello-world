@@ -108,7 +108,7 @@ const orderSchema = mongoose.Schema({
   match: String,
   order1: {type:Number,default:0},
   order2: {type:Number,default:0},
-});
+},{timestamps:true});
 const Order = mongoose.model("order", orderSchema);
 
 app.get("/signup", function (req, res) {
@@ -168,10 +168,9 @@ app.get("/dashboard", function (req, res) {
     if (!err){
     if (matchTable.length !== 0) {
       userId=req.session.user
-      Order.find({userId:userId},function(err,userOrder){
-        console.log(userOrder);
+      Order.find({userId:userId},function(err,userOrder){        
+        res.render("dashboard", {matchTable:matchTable,userId:userId,userOrder:userOrder})
       })
-      res.render("dashboard", {matchTable:matchTable,userId:userId})
     }}
   });
 });

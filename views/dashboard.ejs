@@ -128,11 +128,12 @@
       <td> <input type="number" name="order1" id="order1" placeholder=""> </td>
       <td> <input type="number" name="order2" id="order2" placeholder=""> </td>
       <td> <button type="submit">Vào</button> </td>
-      <td>  </td>
+      <%= userOrder.findIndex(x => x.match === item._id);%>
+      <!-- <%=userOrder[0]%> -->
     </tr>
   </form>
-   <%})%>
-      
+  <%})%>
+      <%=userOrder %>
            
           </tbody>
         </table>
