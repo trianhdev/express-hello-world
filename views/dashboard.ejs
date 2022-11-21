@@ -104,40 +104,35 @@
               </tr>
             </thead>
             <tbody>
-                <% matchTable.forEach(function(item){ %>
-                  <% matchday=item.matchday.toISOString().split('T')[0]; %>
-                  <% uO=userOrder[(userOrder.findIndex(x=> x.match == item._id))]; %>
-                  <%= item._id %>
-                  <%= uO. match %>
-                  <tr>
-                          <form action="/order" method="post">
-                            <input type="hidden" name="matchid" value="<%=item._id%>">
-                            <input type="hidden" name="userId" value="<%=userId%>">
+              <% matchTable.forEach(function(item){ %>
+                <% matchday=item.matchday.toISOString().split('T')[0]; %>
+                <form action="/order" method="post">
+                <tr>
+                    <td> <%=matchday%> </td>
+                    <td>
+                      <%=item.matchtime%>
+                    </td>
+                    <td>
+                      <%=item.country1%>
+                    </td>
+                    <td>
+                      <%=item.country2%>
+                    </td>
+                    <td>
+                      <%=0 ||item.rate1%>
+                    </td>
+                    <td>
+                      <%=0 ||item.rate2%>
+                    </td>
 
-                            <td>
-                              <%=matchday%>
-                            </td>
-                            <td>
-                              <%=item.matchtime%>
-                            </td>
-                            <td>
-                              <%=item.country1%>
-                            </td>
-                            <td>
-                              <%=item.country2%>
-                            </td>
-                            <td>
-                              <%=item.rate1%>
-                            </td>
-                            <td>
-                              <%=item.rate2%>
-                            </td>
-                            <td> <input type="number" name="order1" id="order1" placeholder="<%=0 ||0%> "> </td>
-                            <td> <input type="number" name="order2" id="order2" placeholder=""> </td>
-                            <td> <button type="submit">Vào</button> </td>
-                        </tr>
-                        </form>
-                        <%})%>
+                      <input type="hidden" name="matchid" value="<%=item._id%>">
+                      <input type="hidden" name="userId" value="<%=userId%>">
+                      <td> <input type="number" id="order1" name="order1" <% if(item._doc.order1>0){%> value="<%=item._doc.order1||0%>" disabled <% } else { %> <%}%>> </td>
+                      <td> <input type="number" id="order2" name="order2" <% if(item._doc.order2>0){%> value="<%=item._doc.order2||0%>" disabled <% } else { %> <%}%>> </td>
+                      <td> <button type=" submit">Vào</button> </td>
+                    </tr>
+                  </form>
+                  <%})%>
 
             </tbody>
           </table>
