@@ -168,7 +168,8 @@ app.get("/dashboard", function (req, res) {
     if (!err){
     if (matchTable.length !== 0) {
       userId=req.session.user
-      Order.find({userId:userId},function(err,userOrder){        
+      Order.find({userId:userId},function(err,userOrder){    
+        console.log(userOrder)    
         res.render("dashboard", {matchTable:matchTable,userId:userId,userOrder:userOrder})
       })
     }}
