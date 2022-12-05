@@ -272,7 +272,9 @@ app.post("/order", (req, res) => {
 
   res.redirect("/dashboard");
 });
-
+app.get("/luckydraw", (req,res)=>{
+  res.render("luckydraw");
+})
 app.listen(port, () =>
   port == 3000
     ? console.log("http://127.0.0.1:3000/")
