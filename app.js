@@ -156,7 +156,7 @@ app.post("/signup", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-  res.redirect("dashboard");
+  res.redirect("luckydraw");
 });
 
 app.post("/signin", function (req, res) {
