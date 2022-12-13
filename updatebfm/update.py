@@ -41,5 +41,5 @@ for file in filepath:
             json.dump(dict2, outfile, ensure_ascii=False)
 
 # export current text for backup
-# exportfile.to_excel("backup.xlsx")
+exportfile.to_excel("backup.xlsx")
            
